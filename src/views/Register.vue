@@ -126,7 +126,7 @@ export default {
               }
             });
         } else {
-          this.$Message.error("Fail!");
+          this.$Message.error("请输入信息，不能为空!");
         }
       });
     },

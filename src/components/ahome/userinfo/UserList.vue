@@ -1,19 +1,24 @@
 <template>
   <div class="userlist-container">
-    <Table stripe :columns="columns" :data="datas"></Table>
-    <div class="page">
-      <Page
-        :total="total"
-        :current="current"
-        :placement="placement"
-        @on-change="getCurrent"
-        :page-size="pageSize"
-        @on-page-size-change="getPageSize"
-        show-sizer
-        show-total
-        show-elevator
-        :page-size-opts="[10,15,20,25]"
-      />
+    <div style="background:#eee;padding: 20px">
+      <Card :bordered="false">
+        <p slot="title">用户信息</p>
+        <Table stripe :columns="columns" :data="datas"></Table>
+        <div class="page">
+          <Page
+            :total="total"
+            :current="current"
+            :placement="placement"
+            @on-change="getCurrent"
+            :page-size="pageSize"
+            @on-page-size-change="getPageSize"
+            show-sizer
+            show-total
+            show-elevator
+            :page-size-opts="[10,15,20,25]"
+          />
+        </div>
+      </Card>
     </div>
   </div>
 </template>
@@ -67,7 +72,6 @@ export default {
       total: 0,
       placement: "top",
       userId: ""
-      
     };
   },
   created() {
@@ -91,7 +95,7 @@ export default {
         pageSize: this.pageSize
       };
       this.$axios
-        .post('http://localhost:8080/user/findAll', qs.stringify(params))
+        .post("http://localhost:8080/user/findAll", qs.stringify(params))
         .then(res => {
           let resData = res.data; //{code: 0, msg: "成功", data: {…}}
           if (resData.code === 0) {
@@ -118,15 +122,18 @@ export default {
           }
         });
     },
-    changeStatus(index){
+    changeStatus(index) {
       this.$axios
-      .post('http://localhost:8080/user/changeStatus',qs.stringify({userId: this.datas[index].userId}))
-      .then(res => {
-        let resData = res.data; 
-        if(resData.code === 0){
-          this.getAllUser();
-        }
-      })
+        .post(
+          "http://localhost:8080/user/changeStatus",
+          qs.stringify({ userId: this.datas[index].userId })
+        )
+        .then(res => {
+          let resData = res.data;
+          if (resData.code === 0) {
+            this.getAllUser();
+          }
+        });
     }
   }
 };
