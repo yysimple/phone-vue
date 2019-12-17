@@ -12,10 +12,10 @@
             <FormItem label="用户名" prop="username">
               <Input type="text" v-model="username" string></Input>
             </FormItem>
-            <FormItem label="输入密码" prop="passwd">
+            <FormItem label="输入原密码" prop="passwd">
               <Input type="password" v-model="passwd"></Input>
             </FormItem>
-            <FormItem label="重复密码" prop="passwdCheck">
+            <FormItem label="输入新密码" prop="passwdCheck">
               <Input type="password" v-model="passwdCheck"></Input>
             </FormItem>
             <FormItem>

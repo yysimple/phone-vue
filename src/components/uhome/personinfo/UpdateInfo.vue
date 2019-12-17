@@ -38,7 +38,7 @@
           <label class="title">简介:</label>
           <Input type="text" class="value" clearable v-model="personInfo.remark" />
         </div>
-        <Button type="info" long @click="modal1 = true">Info</Button>
+        <Button type="info" long @click="modal1 = true">change</Button>
         <Modal
           v-model="modal1"
           title="Update"

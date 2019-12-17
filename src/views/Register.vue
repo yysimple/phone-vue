@@ -12,7 +12,7 @@
               <Input type="password" v-model="formCustom.passwd"></Input>
             </FormItem>
             <FormItem label="重复密码" prop="passwdCheck">
-              <Input type="password" v-model="formCustom.passwdCheck"></Input>
+              <Input type="password" v-model="formCustom.passwdCheck" @keyup.enter.native="handleSubmit('formCustom')"></Input>
             </FormItem>
             <FormItem>
               <Button type="primary" long @click="handleSubmit('formCustom')">Submit</Button>
@@ -69,6 +69,7 @@ export default {
     };
 
     return {
+      userId: '',
       formCustom: {
         passwd: "",
         passwdCheck: "",
@@ -82,6 +83,20 @@ export default {
     };
   },
   methods: {
+    getUserId(){
+      let params = {
+        userName: this.formCustom.username
+      };
+      this.$axios
+      .post('http://localhost:8080/user/findUserByUserName',qs.stringify(params))
+      .then(res => {
+        let resData = res.data;
+        if(resData.code === 0){
+          console.log(resData);
+          this.userId = resData.data.userId;
+        }
+      })
+    },
     handleSpinCustom() {
       this.$Spin.show({
         render: h => {
@@ -93,14 +108,15 @@ export default {
                 size: 18
               }
             }),
-            h("div", "正在登陆，请稍等...")
+            h("div", "正在返回登陆界面，请稍等...")
           ]);
         }
       });
       setTimeout(() => {
         this.$Spin.hide();
       }, 3000);
-      this.$router.push("/uhome")
+      //this.getUserId();
+      this.$router.push("/login")
     },
     handleSubmit(name) {
       this.$refs[name].validate(valid => {
@@ -122,6 +138,8 @@ export default {
                 });
               } else {
                 this.$Message.success("Success!");
+                /* localStorage.setItem("userId",this.formCustom.userId);
+                localStorage.setItem("username",this.formCustom.username); */
                 this.handleSpinCustom();
               }
             });

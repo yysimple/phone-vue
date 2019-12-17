@@ -4,7 +4,7 @@
       <p slot="title">零件信息</p>
       <Table border :columns="columns" :data="datas">
         <template slot-scope="{ row, index }" slot="action">
-          <Button type="success" ghost size="small" @click="buyParts(index)">购买</Button>
+          <Button type="success" ghost size="small" @click="buyParts(index)">进货</Button>
         </template>
       </Table>
       <div class="page">

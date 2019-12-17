@@ -20,7 +20,7 @@
     <Table stripe :columns="columns" :data="datas">
       <template slot-scope="{ row, index }" @on-row-click="getIndex" slot="action">
         <Button
-          v-if="flag"
+          v-if="row.status === 0"
           type="success"
           size="small"
           ghost
@@ -175,9 +175,7 @@ export default {
         .then(res => {
           let resData = res.data;
           if (resData.code === 0) {
-            // this.flag = this.datas[index].status == 0 ? true : false;
-            console.log(this.flag);
-            //this.getAllOrder();
+            this.getAllOrder();
           }
         });
     },
