@@ -1,40 +1,60 @@
 <style scoped>
-.layout{
-    border: 1px solid #d7dde4;
-    background: #f5f7f9;
-    position: relative;
-    border-radius: 4px;
-    overflow: hidden;
-}
-.layout-logo{
-    width: 100px;
-    height: 30px;
-    background: #5b6270;
-    border-radius: 3px;
-    float: left;
-    position: relative;
-    top: 15px;
-    left: 20px;
-}
-.ivu-layout-header {
-  z-index: 99;
-}
-.layout-nav{
-    width: 420px;
-    margin: 0 auto;
-    margin-right: -250px;
-}
-.ivu-menu-item{
-  font-size: 12px;
-  color: pink;
-}
-.user{
-    position: relative;
-    margin: 0 10px; 
-    color: red;
-    line-height: 30px;
-    font-size: 20px;
-}
+    /*.ivu-layout-sider-children{
+        background: antiquewhite;
+    }*/
+    .layout {
+        border: 1px solid #d7dde4;
+        background: #f5f7f9;
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+  /*  .ivu-menu {
+        background: antiquewhite;
+    }*/
+/*
+    .ivu-layout-sider{
+
+    }*/
+
+    .layout-logo {
+        background: rgba(45,140,240, 1);
+        width: 83px;
+        height: 30px;
+        border-radius: 5px;
+        float: left;
+        position: relative;
+        top: 15px;
+        left: 20px;
+    }
+    .ivu-layout-header {
+        z-index: 99;
+        background: antiquewhite;
+    }
+
+    .layout-nav {
+        width: 420px;
+        margin: 0 auto;
+        margin-right: -250px;
+    }
+
+    .ivu-menu-horizontal{
+        background: antiquewhite;
+    }
+
+    .ivu-menu-item {
+        font-size: 12px;
+        color: pink;
+    }
+
+    .user {
+        position: relative;
+        margin: 0 10px;
+        color: white;
+        line-height: 30px;
+        font-size: 18px;
+        text-align: center;
+    }
 </style>
 <template>
     <div class="layout">
@@ -46,19 +66,19 @@
                     </div>
                     <div class="layout-nav">
                         <MenuItem name="1">
-                            <Button type="error" @click="outLogin">退出登录</Button>
+                            <Button type="primary" @click="outLogin">退出登录</Button>
                         </MenuItem>
                     </div>
                 </Menu>
             </Header>
             <Layout>
-                <Sider hide-trigger 
-                :style="{background: '#fff',
+                <Sider hide-trigger
+                       :style="{background: '#fff',
                 position: 'fixed', height: '100vh', left: 0, overflow: 'auto',marginTop: '64px',marginBottom: '100px'}">
                     <Menu theme="light" width="auto">
                         <Submenu name="1">
                             <template slot="title">
-                                <Icon type="ios-bowtie" />
+                                <Icon type="ios-bowtie"/>
                                 我的信息
                             </template>
                             <MenuItem to="/uhome/personinfo" name="1-1">查看个人信息</MenuItem>
@@ -67,7 +87,7 @@
                         </Submenu>
                         <Submenu name="2">
                             <template slot="title">
-                                <Icon type="ios-bowtie" />
+                                <Icon type="ios-bowtie"/>
                                 手机信息
                             </template>
                             <MenuItem to="/uhome/phoneinfo" name="2-1">查看手机信息</MenuItem>
@@ -75,14 +95,14 @@
                         </Submenu>
                         <Submenu name="3">
                             <template slot="title">
-                                <Icon type="ios-bowtie" />
+                                <Icon type="ios-bowtie"/>
                                 维修信息
                             </template>
                             <MenuItem to="/uhome/orderinfo" name="3-1">查看维修信息</MenuItem>
                         </Submenu>
                         <Submenu name="4">
                             <template slot="title">
-                                <Icon type="ios-bowtie" />
+                                <Icon type="ios-bowtie"/>
                                 通知信息
                             </template>
                             <MenuItem to="/uhome/noticeinfo" name="4-1">查看通知信息</MenuItem>

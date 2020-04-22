@@ -45,7 +45,7 @@
                 <Button type="info" long @click="modal1 = true">添加</Button>
 
                 <Modal v-model="modal1" title="添加" @on-ok="ok" @on-cancel="cancel">
-                    <p>是否进行购买...</p>
+                    <p>是否进行添加...</p>
                 </Modal>
 
             </div>

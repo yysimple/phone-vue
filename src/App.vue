@@ -8,5 +8,4 @@
 .ivu-icon{
   color: pink;
 }
-
 </style>

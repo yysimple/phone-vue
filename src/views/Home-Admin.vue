@@ -7,10 +7,10 @@
   overflow: hidden;
 }
 .layout-logo {
-  width: 100px;
+  background: rgba(45,140,240, 1);
+  width: 83px;
   height: 30px;
-  background: #5b6270;
-  border-radius: 3px;
+  border-radius: 5px;
   float: left;
   position: relative;
   top: 15px;
@@ -18,6 +18,7 @@
 }
 .ivu-layout-header {
   z-index: 99;
+  background: antiquewhite;
 }
 .layout-nav {
   width: 420px;
@@ -32,12 +33,18 @@
   font-size: 12px;
   color: pink;
 }
+
+.ivu-menu-horizontal{
+  background: antiquewhite;
+}
+
 .admin {
   position: relative;
   margin: 0 10px;
-  color: red;
+  color: white;
   line-height: 30px;
-  font-size: 20px;
+  font-size: 16px;
+  text-align: center;
 }
 </style>
 <template>
@@ -50,7 +57,7 @@
           </div>
           <div class="layout-nav">
             <MenuItem name="1">
-              <Button type="error" @click="outLogin">退出登录</Button>
+              <Button type="primary" @click="outLogin">退出登录</Button>
             </MenuItem>
           </div>
         </Menu>
@@ -100,7 +107,7 @@
             </Submenu>
             <Submenu name="6">
               <template slot="title">
-                <Icon type="ios-bowtie" />访问管理
+                <Icon type="ios-bowtie" />访问记录
               </template>
               <MenuItem to="/ahome/visitorlist" name="6-1">查看最近访客</MenuItem>
             </Submenu>
